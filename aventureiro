@@ -3,12 +3,11 @@
 int main() {
     // ============================================
     // Simulação dos movimentos das peças de xadrez
-    // Torre (for), Bispo (while), Rainha (do-while) e Cavalo (for + while)
+    // Torre (for), Bispo (while), Rainha (do-while) e Cavalo (interativo)
     // ============================================
 
     // --------------------------------------------
     // TORRE - move-se 5 casas para a direita
-    // Estrutura usada: for
     // --------------------------------------------
     int movimentoTorre = 5;
     printf("Movimento da Torre:\n");
@@ -18,8 +17,6 @@ int main() {
 
     // --------------------------------------------
     // BISPO - move-se 5 casas na diagonal
-    // (para cima e para a direita)
-    // Estrutura usada: while
     // --------------------------------------------
     int movimentoBispo = 5;
     int contadorBispo = 1;
@@ -32,7 +29,6 @@ int main() {
 
     // --------------------------------------------
     // RAINHA - move-se 8 casas para a esquerda
-    // Estrutura usada: do-while
     // --------------------------------------------
     int movimentoRainha = 8;
     int contadorRainha = 1;
@@ -44,31 +40,49 @@ int main() {
     } while (contadorRainha <= movimentoRainha);
 
     // --------------------------------------------
-    // CAVALO - move-se em "L"
-    // (duas casas para baixo e uma casa para a esquerda)
-    // Estruturas usadas: for (externo) + while (interno)
+    // CAVALO - movimento em "L" com interação do usuário
+    // (dois movimentos verticais + um movimento horizontal)
     // --------------------------------------------
-    int casasBaixo = 2;
-    int casasEsquerda = 1;
+    int direcao;
+    int casasVerticais = 2;
+    int casasHorizontais = 1;
     int contador = 1;
+
+    printf("\nEscolha a direção do movimento do Cavalo:\n");
+    printf("1 - Baixo e Esquerda\n");
+    printf("2 - Baixo e Direita\n");
+    printf("3 - Cima e Esquerda\n");
+    printf("4 - Cima e Direita\n");
+    printf("Digite o número correspondente à direção (1, 2, 3 ou 4): ");
+    scanf("%d", &direcao);
 
     printf("\nMovimento do Cavalo:\n");
 
-    // Primeiro movimento: duas casas para baixo (loop externo)
-    for (int i = 1; i <= casasBaixo; i++) {
-        printf("Baixo %d\n", i);
-    }
-
-    // Segundo movimento: uma casa para a esquerda (loop interno)
-    while (contador <= casasEsquerda) {
-        printf("Esquerda %d\n", contador);
+    // Loop externo: movimento vertical (duas casas)
+    for (int i = 1; i <= casasVerticais; i++) {
+        if (direcao == 1 || direcao == 2)
+          printf("Baixo %d\n", i);
+        else
+          printf("Cima %d\n", i);
         contador++;
-    }
+
+}
+
+// Loop interno: movimento horizontal (uma casa)
+while (contador <= casasHorizontais) {
+    if (direcao == 1 || direcao == 3)
+        printf("Esquerda %d\n", contador);
+    else
+        printf("Direita %d\n", contador);
+    contador++;
+}
 
     // --------------------------------------------
     // Fim da simulação
     // --------------------------------------------
     printf("\nFim da simulação dos movimentos.\n");
 
+    return 0;
+}
     return 0;
 }
