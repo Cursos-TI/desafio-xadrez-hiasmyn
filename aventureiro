@@ -84,5 +84,3 @@ while (contador <= casasHorizontais) {
 
     return 0;
 }
-    return 0;
-}
