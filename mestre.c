@@ -1,6 +1,12 @@
 #include <stdio.h>
-
-/* ===== Recursividade no padrão do professor ===== */
+/*
+    Projeto: Movimentação de Peças de Xadrez (Nível Avançado)
+    Requisitos:
+    - Recursividade: Torre, Bispo e Rainha
+    - Cavalo: loops aninhados (múltiplas variáveis/condições) + continue/break
+    - Bispo: também com loops aninhados (externo = vertical, interno = horizontal)
+    - Linhas em branco separando as peças
+*/
 void moverTorre(int casas) {
     if (casas <= 0) return;
     printf("Direita\n");
